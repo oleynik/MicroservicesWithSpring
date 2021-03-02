@@ -1,7 +1,7 @@
 package ua.infinity.courses.springmicroservices.restfulwebservices;
 
-import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
@@ -13,26 +13,27 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-@Configurable
+@Configuration
 @EnableSwagger2
 public class SwaggerConfig {
 
-    private static final Contact DETAULT_CONTACT = new Contact(
+    private static final Contact DEFAULT_CONTACT = new Contact(
             "Oleksandr Oliinyk",
             null,
-            "seti.post@gmail.com");
+            "alex.p.oliinyk@gmail.com");
 
     private static final ApiInfo DEFAULT_API_INFO = new ApiInfo(
             "Cool API Title",
-            "Cool API Documentation",
+            "Cool API Description",
             "1.0",
             "urn:tos",
-            DETAULT_CONTACT,
+            DEFAULT_CONTACT,
             "Apache 2.0",
             "http://www.apache.org/licenses/LICENSE-2.0",
             Collections.emptyList());
 
-    private static final Set<String> DEFAULT_PRODUCES_AND_CONSUMES = new HashSet<>(Arrays.asList("application/json", "application/xml"));
+    private static final Set<String> DEFAULT_PRODUCES_AND_CONSUMES = new HashSet<>(Arrays
+            .asList("application/json", "application/xml"));
 
     @Bean
     public Docket api() {
